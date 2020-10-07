@@ -32,3 +32,15 @@ steps:
     artifactName: 'drop'
     artifactType: 'container'
   displayName: Publish artifacts
+  
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'Link with MS app center'
+    appSlug: 'ebp-dawnhealth/TestingPipeline'
+    appFile: '$(build.artifactStagingDirectory)'
+    buildVersion: '1'
+    symbolsOption: 'Android'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'n/a'
+    destinationType: 'groups'
